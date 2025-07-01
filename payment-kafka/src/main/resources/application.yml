@@ -1,0 +1,52 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: payment-consumer-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    listener:
+      concurrency: 3       # 多线程
+      ack-mode: manual_immediate  # 如果你想手动 ack（后面我们可以示范）
+
+  redis:
+    host: localhost      # Redis 主机地址
+    port: 6379           # Redis 端口
+    password: Aa4335  # 如果有密码的话
+    jedis:
+      pool:
+        max-active: 10    # 连接池最大连接数
+        max-idle: 5       # 最大空闲连接数
+        min-idle: 1       # 最小空闲连接数
+        max-wait: -1      # 获取连接的最大等待毫秒数
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/highCurrency
+    username: root
+    password: Aa4335
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: HikariCP
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

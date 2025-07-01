@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.vina</groupId>
+		<artifactId>HighConcurrencyPayemntSystem</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>payment-kafka</artifactId>
+	<name>Payment Kafka Module</name>
+
+	<dependencies>
+		<!-- Kafka support -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+
+
+		<!--		&lt;!&ndash; Kafka test &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.kafka</groupId>-->
+<!--			<artifactId>spring-kafka-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; Common module &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.vina</groupId>-->
+<!--			<artifactId>payment-common</artifactId>-->
+<!--			<version>0.0.1-SNAPSHOT</version>-->
+<!--		</dependency>-->
+	</dependencies>
+</project>
